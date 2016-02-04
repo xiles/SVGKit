@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		191CD3241C61FCB600123297 /* Build framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 191CD3271C61FCB600123297 /* Build configuration list for PBXAggregateTarget "Build framework" */;
+			buildPhases = (
+				191CD3281C61FCD500123297 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Build framework";
+			productName = "Build framework";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		00E86D7417415AA000F0FA0A /* SVGKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E86D7317415AA000F0FA0A /* SVGKit.m */; };
 		036A524C16E87693008C1140 /* NSCharacterSet+SVGKExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 036A524A16E87693008C1140 /* NSCharacterSet+SVGKExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2130,6 +2144,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = na;
 				TargetAttributes = {
+					191CD3241C61FCB600123297 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					55452BF019EC68A200B75A30 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -2166,6 +2183,7 @@
 				825CDAB71BDA4BC0003C1C12 /* SVGKitFramework-iOSTests */,
 				825CDAD21BDA4D38003C1C12 /* SVGKitFramework-tvOS */,
 				825CDADB1BDA4D38003C1C12 /* SVGKitFramework-tvOSTests */,
+				191CD3241C61FCB600123297 /* Build framework */,
 			);
 		};
 /* End PBXProject section */
@@ -2209,6 +2227,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		191CD3281C61FCD500123297 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nTARGET_NAME=\"SVGKitFramework-iOS\"\nFRAMEWORK_NAME=\"SVGKit\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -project \"SVGKit-iOS.xcodeproj\" -target \"${TARGET_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -project \"SVGKit-iOS.xcodeproj\" -target \"${TARGET_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${SRCROOT}/release/ios/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${SRCROOT}/release/ios/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${SRCROOT}/release/ios/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${SRCROOT}/release/ios/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\n#cp -r \"${BUILT_PRODUCTS_DIR}/../Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"$${SRCROOT}/../${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
 		663963481614968A00E58CCA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2593,6 +2624,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		191CD3251C61FCB600123297 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		191CD3261C61FCB600123297 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		55452BFA19EC68A200B75A30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3045,6 +3090,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		191CD3271C61FCB600123297 /* Build configuration list for PBXAggregateTarget "Build framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				191CD3251C61FCB600123297 /* Debug */,
+				191CD3261C61FCB600123297 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		55452BFC19EC68A200B75A30 /* Build configuration list for PBXNativeTarget "SVGKit-iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

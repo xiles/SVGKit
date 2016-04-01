@@ -191,6 +191,15 @@
 			<key>Source URL</key>
 			<string>http://www-archive.mozilla.org/projects/svg/lion.svg</string>
 		</dict>
+		<key>comic003.svg</key>
+		<dict>
+			<key>Source Local File</key>
+			<string>comic003.svg</string>
+			<key>License</key>
+			<string>Unknown, probably Public Domain.</string>
+			<key>Source URL</key>
+			<string>http://www-archive.mozilla.org/projects/svg/lion.svg</string>
+		</dict>
 		<key>Location_European_nation_states.svg</key>
 		<dict>
 			<key>Source Local File</key>

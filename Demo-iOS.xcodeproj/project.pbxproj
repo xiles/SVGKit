@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1935A1491C6368F000838308 /* comic003.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1935A1481C6368F000838308 /* comic003.svg */; };
 		4FD8223F1AD057F000E419D3 /* arcs01.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4FD8223D1AD057F000E419D3 /* arcs01.svg */; };
 		4FD822401AD057F000E419D3 /* arcs02.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4FD8223E1AD057F000E419D3 /* arcs02.svg */; };
 		4FD822441AD058AB00E419D3 /* arcs01.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FD822421AD058AB00E419D3 /* arcs01.png */; };
@@ -227,7 +226,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1935A1481C6368F000838308 /* comic003.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comic003.svg; sourceTree = "<group>"; };
 		4FD8223D1AD057F000E419D3 /* arcs01.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = arcs01.svg; sourceTree = "<group>"; };
 		4FD8223E1AD057F000E419D3 /* arcs02.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = arcs02.svg; sourceTree = "<group>"; };
 		4FD822421AD058AB00E419D3 /* arcs01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arcs01.png; sourceTree = "<group>"; };
@@ -631,7 +629,6 @@
 				66E8627D1688BA510059C9C4 /* Blank_Map-Africa.svg */,
 				667CA17B181D552A00E49B68 /* BlankMap-World6-Equirectangular.svg */,
 				66E8627E1688BA510059C9C4 /* breaking-1.svg */,
-				1935A1481C6368F000838308 /* comic003.svg */,
 				9ED79A20179D83580048AA5B /* radialGradientTest.svg */,
 				66E8627F1688BA510059C9C4 /* CurvedDiamond.svg */,
 				66E862801688BA510059C9C4 /* Europe_states_reduced.svg */,
@@ -836,7 +833,6 @@
 				BDC7EAB81B2A7E4A001F3161 /* CSS.png in Resources */,
 				661EEA961ACC2FD4007176B0 /* lingrad01.png in Resources */,
 				66E8629C1688BA510059C9C4 /* Note.svg in Resources */,
-				1935A1491C6368F000838308 /* comic003.svg in Resources */,
 				66E8629D1688BA510059C9C4 /* Reinel_compass_rose-simplified-for-testing.svg in Resources */,
 				661EEA431ACC04F2007176B0 /* Licenses.plist in Resources */,
 				66E8629E1688BA510059C9C4 /* Reinel_compass_rose.svg in Resources */,

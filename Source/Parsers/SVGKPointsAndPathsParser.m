@@ -638,7 +638,9 @@ inline BOOL SVGCurveEqualToCurve(SVGCurve curve1, SVGCurve curve2)
 + (SVGCurve) readSmoothCurvetoArgument:(NSScanner*)scanner path:(CGMutablePathRef)path relativeTo:(CGPoint)origin withPrevCurve:(SVGCurve)prevCurve
 {
 	// FIXME: reduce the allocations here; make one SVGCurve and update it, not multiple CGPoint's
-	
+
+    [SVGKPointsAndPathsParser readCommaAndWhitespace:scanner];
+    
     CGPoint p1 = [SVGKPointsAndPathsParser readCoordinatePair:scanner];
     CGPoint coord1 = CGPointMake(p1.x+origin.x, p1.y+origin.y);
     [SVGKPointsAndPathsParser readCommaAndWhitespace:scanner];
@@ -795,8 +797,10 @@ inline BOOL SVGCurveEqualToCurve(SVGCurve curve1, SVGCurve curve2)
 	
 	CGFloat phi;
 	
+    [SVGKPointsAndPathsParser readCommaAndWhitespace:scanner];
 	[SVGKPointsAndPathsParser readCoordinate:scanner intoFloat:&phi];
-	
+    [SVGKPointsAndPathsParser readCommaAndWhitespace:scanner];
+    
 	phi *= M_PI/180.;
 	
 	phi = fmod(phi, 2 * M_PI);
@@ -806,6 +810,8 @@ inline BOOL SVGCurveEqualToCurve(SVGCurve curve1, SVGCurve curve2)
 	BOOL largeArcFlag = flags.x != 0.;
 	BOOL sweepFlag = flags.y != 0.;
 
+    [SVGKPointsAndPathsParser readCommaAndWhitespace:scanner];
+    
 	CGPoint endPoint = [SVGKPointsAndPathsParser readCoordinatePair:scanner];
 
 	// end parsing

@@ -150,16 +150,30 @@ static float cachedDevicePixelsPerInch;
        || [platform hasPrefix:@"iPhone7,2"]
        || [platform hasPrefix:@"iPhone8,1"]
        || [platform hasPrefix:@"iPhone8,4"]
-       || [platform hasPrefix:@"iPhone9,1"]/*iPhone 7*/) {
+       || [platform hasPrefix:@"iPhone9,1"] /*iPhone 7*/
+       || [platform hasPrefix:@"iPhone9,3"] /*iPhone 7*/
+       || [platform hasPrefix:@"iPhone10,1"] /*iPhone 8*/
+       || [platform hasPrefix:@"iPhone10,4"] /*iPhone 8*/)
+    {
         return 326.0f;
     }
     
     if ( [platform hasPrefix:@"iPhone7,1"]
        || [platform hasPrefix:@"iPhone8,2"]
-        || [platform hasPrefix:@"iPhone9,2"]/*iPhone 7 plus*/) {
+        || [platform hasPrefix:@"iPhone9,2"] /*iPhone 7 plus*/
+        || [platform hasPrefix:@"iPhone9,4"] /*iPhone 7 plus*/
+        || [platform hasPrefix:@"iPhone10,2"] /*iPhone 8 plus*/
+        || [platform hasPrefix:@"iPhone10,5"] /*iPhone 8 plus*/)
+    {
         return 401.0f;
     }
-	
+    
+    if ( [platform hasPrefix:@"iPhone10,3"] /* iPhoneX */
+        || [platform hasPrefix:@"iPhone10,6"]) /* iPhoneX */
+    {
+        return 458.0f;
+    }
+
 	if( [platform hasPrefix:@"iPhone"]) // catch-all for higher-end devices not yet existing
 	{
 		NSAssert(FALSE, @"Update your source code or disable assertions: you are using an iPhone that didn't exist when this code was written, we have no idea what the pixel count per inch is!");

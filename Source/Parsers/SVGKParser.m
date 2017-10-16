@@ -277,11 +277,11 @@ SVGKParser* getCurrentlyParsingParser()
 				}
 				else
 				{
-					SVGKitLogWarn(@"[%@] SVG parser generated one or more FATAL errors (not the XML parser), errors follow:", [self class] );
-					for( NSError* error in currentParseRun.errorsFatal )
-					{
-						SVGKitLogWarn(@"[%@] ... FATAL ERRRO in SVG parse: %@", [self class], error );
-					}
+//                    SVGKitLogWarn(@"[%@] SVG parser generated one or more FATAL errors (not the XML parser), errors follow:", [self class] );
+//                    for( NSError* error in currentParseRun.errorsFatal )
+//                    {
+//                        SVGKitLogWarn(@"[%@] ... FATAL ERRRO in SVG parse: %@", [self class], error );
+//                    }
 				}
 				
 				break;
